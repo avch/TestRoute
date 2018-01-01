@@ -1,5 +1,7 @@
-var browserify = require('browserify'),
+let browserify = require('browserify'),
     gulp = require('gulp'),
+    uglify = require('gulp-uglify'),
+    cssnano = require('gulp-cssnano'),
     sourcemaps = require('gulp-sourcemaps'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -8,7 +10,7 @@ var browserify = require('browserify'),
     browserSync = require('browser-sync');
 
 /* pathConfig*/
-var entryPoint = './src/js/index.js',
+let entryPoint = './src/js/index.js',
     browserDir = './',
     sassWatchPath = './src/scss/**/*.scss',
     jsWatchPath = './src/**/*.js',
@@ -22,7 +24,8 @@ gulp.task('js', function () {
         .pipe(source('bundle.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(sourcemaps.write())
+        .pipe(uglify())
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./build/'))
         .pipe(browserSync.reload({stream: true}));
 });
@@ -44,7 +47,8 @@ gulp.task('sass', function () {
     .pipe(autoprefixer({
         browsers: ['last 2 versions']
     }))
-    .pipe(sourcemaps.write())
+    .pipe(cssnano())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./build'))
     .pipe(browserSync.reload({stream: true}));
 });

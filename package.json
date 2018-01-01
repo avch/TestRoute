@@ -1,7 +1,7 @@
 {
   "name": "testroute",
   "version": "1.0.0",
-  "description": "test route project",
+  "description": "Test route project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,13 +16,15 @@
     "browserify": "^14.5.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
+    "gulp-cssnano": "^2.1.2",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.2",
-    "jquery": "^3.2.1",
+    "gulp-uglify": "^3.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
     "leaflet": "^1.2.0"
   }
 }
