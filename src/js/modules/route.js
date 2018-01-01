@@ -64,16 +64,11 @@ class Route {
 
         this.geopoints.splice(index, 1);
 
-        if(this.geopoints.length < 2 && this.polyline !== null) {
-            this.polyline.remove();
-            this.polyline = null;
-        }
-
         if(this.geopoints.length == 1) {
             return this.removeGeopoint(0);
         }
 
-        for (let i = index; i < this.geopoints.length; i++) {
+        for(let i = index; i < this.geopoints.length; i++) {
             this.geopoints[i].setIcon(this.markerIcon(i + 1));
         }
 
@@ -90,6 +85,15 @@ class Route {
     }
 
     update() {
+        if(this.polyline !== null) {
+            this.polyline.remove();
+        }
+
+        if(this.distanses.length > 0) {
+            this.distanses.forEach(item => item.remove());
+            this.distanses.splice(0, this.distanses.length);
+        }
+
         if(this.geopoints.length < 2) return;
 
         let self = this,
@@ -108,15 +112,6 @@ class Route {
             dataType: 'json'
         }).done(function(response) {
             if(response.code != 'Ok') return;
-
-            if(self.polyline !== null) {
-                self.polyline.remove();
-            }
-
-            if(self.distanses.length > 0) {
-                self.distanses.forEach(item => item.remove());
-                self.distanses.splice(0, self.distanses.length);
-            }
 
             response.routes[0].legs.forEach((item, i) => {
                 let coord = item.steps.map(function(step) {
