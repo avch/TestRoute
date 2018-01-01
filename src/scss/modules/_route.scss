@@ -1,0 +1,121 @@
+.route {
+    position: relative;
+
+    &__toolbar {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1001;
+    }
+
+    &__control {
+        display: block;
+        height: 32px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border: 2px solid rgba(0,0,0,0.2);
+        border-radius: 2px;
+        color: #000;
+        background: #fff;
+
+        &:focus {
+            outline: 0;
+        }
+
+        &:active,
+        &--active {
+            outline: 0;
+    		background-image: none;
+    		box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        }
+    }
+
+    &__list {
+        position: absolute;
+        top: 80px;
+        right: 10px;
+        max-height: 510px;
+        overflow: auto;
+        opacity: .75;
+        z-index: 1001;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &-item {
+            position: relative;
+            margin-bottom: 2px;
+            padding-right: 36px;
+            background: rgba(255,255,255,.75);
+
+            &:hover {
+                background: #fff;
+            }
+        }
+
+        &-points {
+            padding: 4px;
+            background: #eee;
+        }
+
+        &-point {
+            display: inline-block;
+            vertical-align: middle;
+            min-width: 20px;
+            height: 20px;
+            line-height: 20px;
+            margin: 4px;
+            border-radius: 2px;
+            font-weight: 700;
+            font-size: 14px;
+            text-align: center;
+            color: #fff;
+            background: #2b82cb;
+        }
+
+        &-remove {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            margin-top: -10px;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 12px;
+            text-align: center;
+            color: #fff;
+            background: #cd0000;
+        }
+    }
+
+    &__marker {
+        min-width: 20px;
+        min-height: 20px;
+        line-height: 20px;
+        border-radius: 2px;
+        font-weight: 700;
+        font-size: 14px;
+        text-align: center;
+        color: #fff;
+        background: #2b82cb;
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            margin-left: -4px;
+            border-left: 4px solid transparent;
+        	border-right: 4px solid transparent;
+        	border-top: 4px solid #2b82cb;
+        }
+    }
+
+    &__map {
+        height: 600px;
+    }
+}

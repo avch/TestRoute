@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Test route project</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="build/main.css">
+</head>
+<body>
+<div class="content">
+	<div class="route">
+        <div id="route__map" class="route__map">
+
+        </div>
+		<div class="route__toolbar">
+            <button class="route__control">Режим маршрута</button>
+        </div>
+		<ul class="route__list">
+			<template id="route__list-item">
+				<li class="route__list-item">
+					<div class="route__list-points">
+						<span class="route__list-point route__list-point--one"></span><!--
+						--><span class="route__list-point route__list-point--two"></span>
+					</div>
+					<button class="route__list-remove">&times;</button>
+				</li>
+			</template>
+		</ul>
+    </div>
+</div>
+<footer class="footer">
+	&copy; 2018
+</footer>
+<script src="build/bundle.js"></script>
+</body>
+</html>
